@@ -60,7 +60,24 @@
             $.ajax({
                 type:'POST',
                 url:'ajaxData.php',
-                data:'distirct_id='+districtID,
+                data:'district_id='+districtID,
+                success:function(html){
+                   $('#facility').html(html);
+                                      }
+                   }); 
+                    }else{
+                           $('#facility').html('<option value="">Select district first</option>');
+                    
+                           }
+    });
+                       
+     $('#facility').on('change',function(){//change state to display all facility
+        var facilityID = $(this).val();
+        if(facilityID){
+            $.ajax({
+                type:'POST',
+                url:'ajaxData.php',
+                data:'facility_id='+facilityID,
                 success:function(html){
                    
                                       }
@@ -93,15 +110,24 @@
 
                     
 
-                 <div class="col-md-1 col-sm-12" id="lable1"><id="lable1">District</div>
+                 <div class="col-md-1 col-sm-12">District</div>
                     <div class="col-md-2">
                     <select class="selectpicker form-control" name="district" id="district" standard title="Select an Option" autofocus="autofocus" required>
-                    <option value="">Select an Option</option>
+                    <option value="">Select District</option>
+                    </select></div>
+                    
+                <div class="col-md-1 col-sm-12">Facility</div>
+                    <div class="col-md-2">
+                    <select class="selectpicker form-control" name="facility" id="facility" standard title="Select an Option" autofocus="autofocus" required>
+                    <option value="">Select facility</option>
                     </select></div>
 					
                   </div>
-                    </br>
-					</div>
+    </div>
+  
+        
+                  
+				
 				
                     <!--start 6 row-->
                
