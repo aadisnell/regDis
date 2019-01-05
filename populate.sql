@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 04, 2019 at 05:46 PM
+-- Generation Time: Jan 05, 2019 at 07:45 AM
 -- Server version: 5.7.22-log
 -- PHP Version: 7.2.2
 
@@ -46,6 +46,29 @@ INSERT INTO `district` (`district_id`, `dname`, `region_id`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `fac`
+--
+
+CREATE TABLE `fac` (
+  `fac_id` int(11) NOT NULL,
+  `fac_name` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `district_id` int(11) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '0:Blocked, 1:Active'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `fac`
+--
+
+INSERT INTO `fac` (`fac_id`, `fac_name`, `district_id`, `status`) VALUES
+(1, 'MAMPONG GOV HOSP', 39, 1),
+(2, 'GOV HOSP', 39, 1),
+(3, 'GOV HOSP', 40, 1),
+(4, 'NAME HOSP', 40, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `region`
 --
 
@@ -82,6 +105,12 @@ ALTER TABLE `district`
   ADD PRIMARY KEY (`district_id`);
 
 --
+-- Indexes for table `fac`
+--
+ALTER TABLE `fac`
+  ADD PRIMARY KEY (`fac_id`);
+
+--
 -- Indexes for table `region`
 --
 ALTER TABLE `region`
@@ -96,6 +125,12 @@ ALTER TABLE `region`
 --
 ALTER TABLE `district`
   MODIFY `district_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
+--
+-- AUTO_INCREMENT for table `fac`
+--
+ALTER TABLE `fac`
+  MODIFY `fac_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `region`
